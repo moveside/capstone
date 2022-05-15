@@ -1,0 +1,33 @@
+{{>layout/header}}
+<h1>TEST</h1>
+<div class="col-md-12">
+    <!-- 로그인-->
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/menu/save" role="button" class="btn btn-primary">등록</a>
+        </div>
+    </div>
+    <br>
+    <!-- 목록 출력 영역-->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>No</th>
+            <th>이름</th>
+            <th>가격</th>
+            <th>매장</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#menus}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</a></td>
+                <td>{{price}}</td>
+                <td>{{store}}</td>
+            </tr>
+        {{/menus}}
+        </tbody>
+    </table>
+</div>
+{{>layout/footer}}

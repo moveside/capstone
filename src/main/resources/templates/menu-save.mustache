@@ -1,0 +1,26 @@
+{{>layout/header}}
+
+<h1>음식 메뉴 등록</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="price">price</label>
+                <input type="text" class="form-control" id="price">
+            </div>
+            <div class="form-group">
+                <label for="info">info</label>
+                <input type="text" class="form-control" id="info">
+            </div>
+        </form>
+        <a href="/menu" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-save_menu">등록</button>
+    </div>
+</div>
+
+{{>layout/footer}}

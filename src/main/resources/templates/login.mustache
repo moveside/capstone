@@ -9,21 +9,19 @@
             <thead class="thead-strong">
             <tr>
                 <th>No</th>
-                <th>이름</th>
-                <th>가격</th>
-                <th>메장</th>
             </tr>
             </thead>
             <tbody id="tbody">
-            {{#posts}}
+            {{#codes}}
                 <tr>
-                    <td>{{id}}</td>
-                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                    <td>{{author}}</td>
-                    <td>{{modifiedDate}}</td>
+                    <td>{{codes}}</td>
                 </tr>
-            {{/posts}}
+            {{/codes}}
             </tbody>
         </table>
+        <div class="form-group">
+            <label for="login">info</label>
+            <input type="text" class="form-control" id="login">
+        </div>
     </div>
 {{>layout/footer}}
