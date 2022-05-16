@@ -6,43 +6,43 @@ import moveside.domain.Entity.ESL;
 import moveside.domain.Entity.Store;
 import moveside.domain.Repository.EslRepository;
 import moveside.service.MenuService;
-import moveside.service.PostsService;
 import moveside.service.StoreService;
-import moveside.web.dto.PostsResponseDto;
+import moveside.web.dto.MenuListResponseDto;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 public class IndexController {
 
-    private final PostsService postsService;
     private final HttpSession httpSession;
     private final StoreService storeService;
     private final MenuService menuService;
     private final EslRepository eslRepository;
     @GetMapping("/menu")
-    public String Menu(Model model,HttpServletRequest request) {
-
+    public ResponseEntity<List<MenuListResponseDto>> Menu(Model model, HttpServletRequest request) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
         HttpSession session = request.getSession();
-        Store store = (Store)session.getAttribute("loginMember");
-        System.out.println(store.getName());
-        model.addAttribute("menus", menuService.findAllDesc(store.getName()));
-        return "menu";
+//        Store store = (Store)session.getAttribute("loginMember");
+//        model.addAttribute("menus", menuService.findAllDesc(store.getName()));
+        model.addAttribute("menus",menuService.findAllASC());
+        return new ResponseEntity<>(menuService.findAllASC(),headers,HttpStatus.OK);
     }
     @GetMapping("/login")
     public String Login(Model model, HttpServletRequest request) {
@@ -60,12 +60,6 @@ public class IndexController {
         }
         return "login";
     }
-
-
-
-
-
-
     @GetMapping("/download")
     public ResponseEntity<byte[]> download() throws IOException {
         List<ESL> esl = eslRepository.findAll();
@@ -108,21 +102,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("posts",postsService.findAllDesc());
 
         return "index";
-    }
-
-    @GetMapping("/posts/save")
-    public String postsSave() {
-        return "posts-save";
-    }
-
-    @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id,Model model){
-        PostsResponseDto dto = postsService.findById(id);
-        model.addAttribute("post",dto);
-
-        return "posts-update";
     }
 }

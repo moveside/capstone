@@ -32,4 +32,7 @@ public class MenuService {
     public List<MenuListResponseDto> findAllDesc(String Store) {
         return menuRepository.findAllDesc(Store).stream().map(MenuListResponseDto::new).collect(Collectors.toList());
     }
+    public List<MenuListResponseDto> findAllASC() {
+        return menuRepository.findAllASC().stream().map(MenuListResponseDto::new).collect(Collectors.toList());
+    }
 }

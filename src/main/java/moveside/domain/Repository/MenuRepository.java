@@ -9,4 +9,6 @@ import java.util.List;
 public interface MenuRepository extends JpaRepository<Menu,Long> {
     @Query("SELECT p From Menu p Where p.store= ?1 ORDER BY p.id DESC")
     List<Menu> findAllDesc(String store);
+    @Query("SELECT p From Menu p ORDER BY p.id ASC")
+    List<Menu> findAllASC();
 }
