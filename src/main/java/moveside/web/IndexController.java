@@ -14,10 +14,10 @@ import org.apache.commons.csv.CSVPrinter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class IndexController {
 
     private final PostsService postsService;
