@@ -65,7 +65,7 @@ public class IndexController {
         List<ESL> esl = eslRepository.findAll();
 
 
-        String[] cols = {"tag_id","seat_no","menuName","menuCost","openTime","closeTime"};
+        String[] cols = {"tag_id","menuName","menuCost","openTime","closeTime"};
         String filename = "test_esl";
 
         byte[] CSVData= null;
@@ -76,7 +76,6 @@ public class IndexController {
             System.out.println(el.getMenuCost());
             List<String> data = Arrays.asList(
                     String.valueOf(el.getTag_id()),
-                    String.valueOf(el.getSeat_no()),
                     el.getMenuName(),
                     el.getMenuCost(),
                     el.getOpenTime(),
