@@ -1,6 +1,7 @@
 package moveside.domain.Entity;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,8 +16,7 @@ public class ESL {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tag_id;
 
-    @Column
-    private Long seat_no;
+
 
     @Column
     private String menuName;
@@ -30,10 +30,15 @@ public class ESL {
     @Column
     private String closeTime;
 
+    @Builder
+    public ESL(String menuName,String menuCost,String openTime,String closeTime){
+        this.menuName=menuName;
+        this.menuCost=menuCost;
+        this.openTime=openTime;
+        this.closeTime=closeTime;
+    }
 
-    public ESL(Long tag_id,Long seat_no,String menuName,String menuCost,String openTime,String closeTime){
-        this.tag_id=tag_id;
-        this.seat_no=seat_no;
+    public void update(String menuName,String menuCost,String openTime,String closeTime){
         this.menuName=menuName;
         this.menuCost=menuCost;
         this.openTime=openTime;
