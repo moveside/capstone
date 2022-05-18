@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 class DisplayTable extends React.Component{
@@ -13,7 +14,7 @@ class DisplayTable extends React.Component{
     }
 
     callAPI(){
-        fetch("http://localhost:8080/menu").then(
+        axios.get("http://localhost:8080/menu").then(
             (response)=> response.json()
         ).then((data) => {
             console.log(data)
