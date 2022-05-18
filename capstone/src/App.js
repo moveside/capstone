@@ -45,10 +45,10 @@ function App() {
             </Switch>
           </div>*/}
         </div>
-        <div>
+        {/* <div>
             hi <button onClick={getd}>getget</button>
             <button onClick={postData}>post</button>
-        </div>
+        </div> */}
         <hr></hr>
         <div>
           <DisplayTable />

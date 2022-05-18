@@ -17,7 +17,7 @@ class DisplayTable extends React.Component{
             (response)=> response.json()
         ).then((data) => {
             console.log(data)
-            this.setState({
+                this.setState({
                 list:data.data
             })
         })
@@ -38,15 +38,6 @@ class DisplayTable extends React.Component{
         return(
             <div>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>name</th>
-                            <th>price</th>
-                            <th>info</th>
-                            <th>store</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         {tb_data}
                     </tbody>
