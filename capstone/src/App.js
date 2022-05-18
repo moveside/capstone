@@ -8,7 +8,15 @@ import { Login } from "./pages/Login";
 import { Contact } from "./pages/Contact";
 import { TestLogin } from "./Login/TestLogin";
 import CallApi from "./components/CallApi";
+import axios from "axios";
 function App() {
+  const getd=()=>{
+    axios.get("http://localhost:8080/menu").then(
+        (response)=>{
+            console.log(response);
+        }
+    );
+  }
   return (
     <>
       <Router>
@@ -28,7 +36,7 @@ function App() {
           </div>*/}
         </div>
         <div>
-          <CallApi />
+            hi <button onClick={getd}>getget</button>
         </div>
       </Router>
     </>
