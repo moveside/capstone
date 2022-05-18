@@ -1,0 +1,22 @@
+{
+  "name": "chapstone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moveside/chapstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moveside/chapstone/issues"
+  },
+  "homepage": "https://github.com/moveside/chapstone#readme",
+  "dependencies": {
+    "finalhandler": "^1.2.0"
+  }
+}
