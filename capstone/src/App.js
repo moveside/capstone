@@ -19,14 +19,7 @@ function App() {
         }
     );
   }
-  const data=[
-    {"id":1, "cost": 123123},
-    {"id":100, "price":1231}
 
-  ]
-  const postData=()=>{
-    axios.post("http://localhost:8080/menu", data)
-  }
   return (
     <>
       <Router>
