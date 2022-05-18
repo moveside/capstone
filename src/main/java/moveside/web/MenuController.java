@@ -7,6 +7,7 @@ import moveside.web.dto.MenuUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+
 @RequiredArgsConstructor
 @RestController
 public class MenuController {

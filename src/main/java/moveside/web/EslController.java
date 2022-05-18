@@ -5,10 +5,8 @@ import lombok.RequiredArgsConstructor;
 import moveside.service.EslService;
 import moveside.web.dto.EslSaveDto;
 import moveside.web.dto.MenuUpdateRequestDto;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RequiredArgsConstructor
 @RestController

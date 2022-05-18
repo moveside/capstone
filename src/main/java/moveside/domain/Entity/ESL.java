@@ -14,9 +14,7 @@ public class ESL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tag_id;
-
-
+    private Long id;
 
     @Column
     private String menuName;
@@ -31,7 +29,8 @@ public class ESL {
     private String closeTime;
 
     @Builder
-    public ESL(String menuName,String menuCost,String openTime,String closeTime){
+    public ESL(Long id,String menuName,String menuCost,String openTime,String closeTime){
+        this.id=id;
         this.menuName=menuName;
         this.menuCost=menuCost;
         this.openTime=openTime;

@@ -1,6 +1,7 @@
 package moveside.web.dto;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import moveside.domain.Entity.ESL;
@@ -16,6 +17,8 @@ public class EslSaveDto {
     private String openTime;
     private String closeTime;
 
+
+    @Builder
     public EslSaveDto (String menuName,String menuCost,String openTime,String closeTime) {
         this.menuName=menuName;
         this.menuCost=menuCost;
@@ -23,5 +26,10 @@ public class EslSaveDto {
         this.closeTime=closeTime;
     }
 
-    public ESL to_Entity() { return ESL.builder().menuName(menuName).menuCost(menuCost).openTime(openTime).closeTime(closeTime).build(); }
+    public void update (String menuName,String menuCost,String openTime,String closeTime) {
+        this.menuName = menuName;
+        this.menuCost = menuCost;
+        this.openTime = openTime;
+        this.closeTime = closeTime;
+    }
 }

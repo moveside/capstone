@@ -16,6 +16,34 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+        $('#btn-save_esl').on('click', function () {
+            _this.save_esl();
+        });
+    },
+
+
+    save_esl : function () {
+        var data = {
+            menuName: $('#menu_name').val(),
+            menuCost: $('#menu_cost').val(),
+            openTime: $('#open_time').val(),
+            closeTime: $('#close_time').val()
+        };
+
+        var id = $('#id').val();
+
+        $.ajax({
+            type: 'PUT',
+            url: '/api/v1/esl/1',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            alert('ESL 수정');
+            window.location.href = '/';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
     },
     save_menu : function () {
         var data = {
@@ -50,6 +78,7 @@ var main = {
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
+
         }).done(function() {
             alert('글이 등록되었습니다.');
             window.location.href = '/';

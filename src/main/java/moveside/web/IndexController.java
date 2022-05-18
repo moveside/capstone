@@ -14,6 +14,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,7 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+
 @RequiredArgsConstructor
 @RestController
 public class IndexController {
@@ -77,7 +78,7 @@ public class IndexController {
         for (ESL el : esl) {
             System.out.println(el.getMenuCost());
             List<String> data = Arrays.asList(
-                    String.valueOf(el.getTag_id()),
+                    String.valueOf(el.getId()),
                     el.getMenuName(),
                     el.getMenuCost(),
                     el.getOpenTime(),
@@ -110,4 +111,7 @@ public class IndexController {
     public String test() {
         return "fkeowifkwepoekwop";
     }
+
+    @GetMapping("/esl/update/{id}")
+    public String esl_update() { return "ESL-save";}
 }
