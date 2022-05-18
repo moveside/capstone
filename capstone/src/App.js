@@ -9,6 +9,8 @@ import { Contact } from "./pages/Contact";
 import { TestLogin } from "./Login/TestLogin";
 import CallApi from "./components/CallApi";
 import axios from "axios";
+
+
 function App() {
   const getd=()=>{
     axios.get("http://localhost:8080/menu").then(
@@ -46,6 +48,10 @@ function App() {
         <div>
             hi <button onClick={getd}>getget</button>
             <button onClick={postData}>post</button>
+        </div>
+        <hr></hr>
+        <div>
+          <CallApi />
         </div>
       </Router>
     </>
