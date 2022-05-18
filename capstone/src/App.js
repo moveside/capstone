@@ -6,8 +6,8 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Login } from "./pages/Login";
 import { Contact } from "./pages/Contact";
-import { TestLogin } from "./Login/TestLogin";
 import CallApi from "./components/CallApi";
+import DisplayTable from "./components/DisplayTable";
 import axios from "axios";
 
 
@@ -51,7 +51,7 @@ function App() {
         </div>
         <hr></hr>
         <div>
-          <CallApi />
+          <DisplayTable />
         </div>
       </Router>
     </>
