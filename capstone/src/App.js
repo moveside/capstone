@@ -7,7 +7,7 @@ import { About } from "./pages/About";
 import { Login } from "./pages/Login";
 import { Contact } from "./pages/Contact";
 import { TestLogin } from "./Login/TestLogin";
-
+import CallApi from "./components/CallApi";
 function App() {
   return (
     <>
@@ -26,6 +26,9 @@ function App() {
               <Route exact path="/home" component={Home} />
             </Switch>
           </div>*/}
+        </div>
+        <div>
+          <CallApi />
         </div>
       </Router>
     </>
