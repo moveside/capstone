@@ -7,7 +7,7 @@ import { About } from "./pages/About";
 import { Login } from "./pages/Login";
 import { Contact } from "./pages/Contact";
 import CallApi from "./components/CallApi";
-import DisplayTable from "./components/DisplayTable";
+import TestTable from "./components/TestTable";
 import axios from "axios";
 
 
@@ -44,7 +44,7 @@ function App() {
         </div> */}
         <hr></hr>
         <div>
-          <DisplayTable />
+          <TestTable />
         </div>
       </Router>
     </>
