@@ -34,7 +34,7 @@ var main = {
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/esl/1',
+            url: '/api/v1/esl/2',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
