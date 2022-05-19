@@ -3,11 +3,9 @@ import React from "react";
 import NavBar from "./components/NavBar";
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { About } from "./pages/About";
-import { Login } from "./pages/Login";
-import { Contact } from "./pages/Contact";
-import CallApi from "./components/CallApi";
-import TestTable from "./components/TestTable";
+import { About } from "./pages/Menu";
+import { Login } from "./pages/ESL";
+import { Contact } from "./pages/Statistics";
 import axios from "axios";
 
 
@@ -42,10 +40,7 @@ function App() {
             hi <button onClick={getd}>getget</button>
             <button onClick={postData}>post</button>
         </div> */}
-        <hr></hr>
-        <div>
-          <TestTable />
-        </div>
+        
       </Router>
     </>
   );
