@@ -35,7 +35,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                About
+                Menu
               </NavLink>
             </li>
             <li className="nav-item">
@@ -46,7 +46,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Login
+                ESL
               </NavLink>
             </li>
             <li className="nav-item">
@@ -57,7 +57,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Contact Us
+                statistics
               </NavLink>
             </li>
           </ul>
