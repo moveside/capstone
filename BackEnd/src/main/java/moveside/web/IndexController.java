@@ -5,8 +5,10 @@ import lombok.RequiredArgsConstructor;
 import moveside.domain.Entity.ESL;
 import moveside.domain.Entity.Store;
 import moveside.domain.Repository.EslRepository;
+import moveside.service.EslService;
 import moveside.service.MenuService;
 import moveside.service.StoreService;
+import moveside.web.dto.EslListResponseDto;
 import moveside.web.dto.MenuListResponseDto;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -37,6 +39,7 @@ public class IndexController {
     private final StoreService storeService;
     private final MenuService menuService;
     private final EslRepository eslRepository;
+    private final EslService eslService;
     @GetMapping("/menu")
     public ResponseEntity<List<MenuListResponseDto>> Menu(Model model, HttpServletRequest request) {
         HttpHeaders headers = new HttpHeaders();
@@ -44,8 +47,16 @@ public class IndexController {
         HttpSession session = request.getSession();
 //        Store store = (Store)session.getAttribute("loginMember");
 //        model.addAttribute("menus", menuService.findAllDesc(store.getName()));
-        model.addAttribute("menus",menuService.findAllASC());
         return new ResponseEntity<>(menuService.findAllASC(),headers,HttpStatus.OK);
+    }
+    @GetMapping("/esl")
+    public ResponseEntity<List<EslListResponseDto>> ESL(Model model, HttpServletRequest request) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+        HttpSession session = request.getSession();
+//        Store store = (Store)session.getAttribute("loginMember");
+//        model.addAttribute("menus", menuService.findAllDesc(store.getName()));
+        return new ResponseEntity<>(eslService.findAllESL(),headers,HttpStatus.OK);
     }
     @GetMapping("/login")
     public String Login(Model model, HttpServletRequest request) {
