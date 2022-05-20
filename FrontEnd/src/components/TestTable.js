@@ -34,7 +34,7 @@ const TestTable=()=>{
 
     const getProductData = async() =>{
         try{
-            const data = await axios.get("http://localhost:8080/menu");
+            const data = await axios.get("/menu");
             console.log(data.data);
             setProduct(data.data);
         } catch(e){
