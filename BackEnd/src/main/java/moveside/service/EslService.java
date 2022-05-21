@@ -21,7 +21,7 @@ public class EslService {
     public Long update(Long id, EslSaveDto eslSaveDto) {
         ESL esl = eslRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("esl 접근 오류"));
 
-        esl.update(eslSaveDto.getMenuName(), eslSaveDto.getMenuCost(), eslSaveDto.getOpenTime(), eslSaveDto.getCloseTime());
+        esl.update(esl.getOpenTime(),esl.getCloseTime(),esl.getBreakTime1(),esl.getBreakTime2(),esl.getExp(),esl.getMenuName1(),esl.getMenuName2(),esl.getMenuCost1(),esl.getMenuCost2());
 
         return id;
     }

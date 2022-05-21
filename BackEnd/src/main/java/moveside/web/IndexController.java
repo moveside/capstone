@@ -79,7 +79,7 @@ public class IndexController {
         List<ESL> esl = eslRepository.findAll();
 
 
-        String[] cols = {"tag_id","menuName","menuCost","openTime","closeTime"};
+        String[] cols = {"id","openTime","closeTime","breakTime1","breakTime2","explain","menuName1","menuName2","menuCost1","menuCost2"};
         String filename = "test_esl";
 
         byte[] CSVData= null;
@@ -87,13 +87,17 @@ public class IndexController {
         StringWriter sw = new StringWriter();
         csvPrinter = new CSVPrinter(sw, CSVFormat.DEFAULT.withHeader(cols));
         for (ESL el : esl) {
-            System.out.println(el.getMenuCost());
             List<String> data = Arrays.asList(
                     String.valueOf(el.getId()),
-                    el.getMenuName(),
-                    el.getMenuCost(),
                     el.getOpenTime(),
-                    el.getCloseTime()
+                    el.getCloseTime(),
+                    el.getBreakTime1(),
+                    el.getBreakTime2(),
+                    el.getExp(),
+                    el.getMenuName1(),
+                    el.getMenuName2(),
+                    el.getMenuCost1(),
+                    el.getMenuCost2()
             );
             csvPrinter.printRecord(data);
         }
