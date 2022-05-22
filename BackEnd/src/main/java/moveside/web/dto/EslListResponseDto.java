@@ -16,7 +16,7 @@ public class EslListResponseDto {
 
     private String breakTime2;
 
-    private String explain;
+    private String exp;
 
 
     private String menuName1;
@@ -35,7 +35,7 @@ public class EslListResponseDto {
         this.closeTime=entity.getCloseTime();
         this.breakTime1=entity.getBreakTime1();
         this.breakTime2= entity.getBreakTime2();
-        this.explain=entity.getExp();
+        this.exp=entity.getExp();
         this.menuName1=entity.getMenuName1();
         this.menuName2=entity.getMenuName2();
         this.menuCost1=entity.getMenuCost1();

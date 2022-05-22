@@ -21,7 +21,7 @@ public class EslSaveDto {
 
     private String breakTime2;
 
-    private String explain;
+    private String exp;
 
 
     private String menuName1;
@@ -35,24 +35,24 @@ public class EslSaveDto {
 
 
     @Builder
-    public EslSaveDto (String openTime,String closeTime,String breakTime1,String breakTime2,String explain,String menuName1,String menuName2,String menuCost1,String menuCost2) {
+    public EslSaveDto (String openTime,String closeTime,String breakTime1,String breakTime2,String exp,String menuName1,String menuName2,String menuCost1,String menuCost2) {
         this.openTime=openTime;
         this.closeTime=closeTime;
         this.breakTime1=breakTime1;
         this.breakTime2=breakTime2;
-        this.explain=explain;
+        this.exp=exp;
         this.menuName1=menuName1;
         this.menuName2=menuName2;
         this.menuCost1=menuCost1;
         this.menuCost2=menuCost2;
     }
 
-    public void update (String openTime,String closeTime,String breakTime1,String breakTime2,String explain,String menuName1,String menuName2,String menuCost1,String menuCost2) {
+    public void update (String openTime,String closeTime,String breakTime1,String breakTime2,String exp,String menuName1,String menuName2,String menuCost1,String menuCost2) {
         this.openTime=openTime;
         this.closeTime=closeTime;
         this.breakTime1=breakTime1;
         this.breakTime2=breakTime2;
-        this.explain=explain;
+        this.exp=exp;
         this.menuName1=menuName1;
         this.menuName2=menuName2;
         this.menuCost1=menuCost1;
