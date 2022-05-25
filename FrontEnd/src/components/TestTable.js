@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {uesEffect, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -34,7 +34,7 @@ const TestTable=()=>{
 
     const getProductData = async() =>{
         try{
-            const data = await axios.get("/menu");
+            const data = await axios.get("http://3.36.36.228:8080/menu");
             console.log(data.data);
             setProduct(data.data);
         } catch(e){
@@ -55,7 +55,6 @@ const TestTable=()=>{
                     <StyledTableCell align="right">name</StyledTableCell>
                     <StyledTableCell align="right">price</StyledTableCell>
                     <StyledTableCell align="right">info</StyledTableCell>
-                    <StyledTableCell align="right">store</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -75,9 +74,7 @@ const TestTable=()=>{
                             <StyledTableCell align="right">
                             {item.info}
                             </StyledTableCell>
-                            <StyledTableCell align="right">
-                            {item.store}
-                            </StyledTableCell>
+
                         </StyledTableRow>
                         );
                     })}
