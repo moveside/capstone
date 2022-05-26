@@ -10,6 +10,7 @@ import moveside.service.MenuService;
 import moveside.service.StoreService;
 import moveside.web.dto.EslListResponseDto;
 import moveside.web.dto.MenuListResponseDto;
+import moveside.web.dto.StoreLoginDto;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.springframework.http.HttpHeaders;
@@ -27,6 +28,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,24 +67,26 @@ public class IndexController {
         HttpSession loginSession = request.getSession();
         List<String> store_code = storeService.findAllCode();
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+
         String input = request.getParameter("code");
         for(String el : store_code) {
             System.out.println(el);
             if(el.equals(input)) {
                 Store loginMember = storeService.findStore(input);
                 loginSession.setAttribute("loginMember",loginMember);
-                model.addAttribute("test","ttt");
+                return el;
             }
         }
-        return "login";
+        return "NULL";
     }
     @GetMapping("/download")
     public ResponseEntity<byte[]> download() throws IOException {
         List<ESL> esl = eslRepository.findAll();
 
-
-        String[] cols = {"id","openTime","closeTime","breakTime1","breakTime2","explain","menuName1","menuName2","menuCost1","menuCost2"};
-        String filename = "test_esl";
+        String[] cols = {"tag_id","openTime","closeTime","breakTime1","breakTime2","explain","menuName1","menuName2","menuCost1","menuCost2"};
+        String filename = "Import_";
 
         byte[] CSVData= null;
         CSVPrinter csvPrinter = null;
@@ -101,8 +107,19 @@ public class IndexController {
             );
             csvPrinter.printRecord(data);
         }
+
         sw.flush();
         CSVData = sw.toString().getBytes("UTF-8");
+
+        LocalDate now = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        filename += now.format(formatter);
+        LocalTime nowTime = LocalTime.now();
+        formatter = DateTimeFormatter.ofPattern("HHmmss");
+        filename += nowTime.format(formatter);
+
+
 
         HttpHeaders header = new HttpHeaders();
         header.add("Content-Type", "text/csv; charset=MS932");
@@ -122,10 +139,7 @@ public class IndexController {
 
         return "index";
     }
-    @GetMapping("/test")
-    public String test() {
-        return "fkeowifkwepoekwop";
-    }
+
 
     @GetMapping("/esl/update/{id}")
     public String esl_update() { return "ESL-save";}

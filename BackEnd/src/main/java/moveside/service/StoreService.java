@@ -19,4 +19,5 @@ public class StoreService {
     }
 
     public Store findStore(String code) { return storeRepository.findCode(code); }
+
 }
