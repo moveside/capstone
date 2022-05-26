@@ -12,7 +12,7 @@ function NavBar() {
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
             Errs
-            <i className="fas fa-code"></i>
+            
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
