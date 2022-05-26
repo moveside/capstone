@@ -3,7 +3,7 @@ import LoginPage from "../Login/LoginPage";
 export const Home=()=>{
     return(
         <div>
-            <LoginPage/>
+            <h1>home</h1>
         </div>
     );
 };

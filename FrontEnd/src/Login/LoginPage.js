@@ -1,36 +1,90 @@
-import React from 'react'
-import Avatar from '@mui/material/Avatar';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-const LoginPage=()=>{
+import { useRef, useState, useEffect, useContext } from 'react';
+import AuthContext from './AuthContext';
+import axios from './axios';
+import './login.css';
+const LOGIN_URL = '/login';
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'8px 0'}
-    return(
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-                    <h2>Sign In</h2>
-                </Grid>
-                <TextField label='Username' placeholder='Enter username' fullWidth required/>
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
-                <Typography >
-                     <Link href="#" >
-                        Forgot password ?
-                </Link>
-                </Typography>
-            </Paper>
-        </Grid>
+const Login = () => {
+    const { setAuth } = useContext(AuthContext);
+    const userRef = useRef();
+    const errRef = useRef();
+
+    const [user, setUser] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+    const [success, setSuccess] = useState(false);
+
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [user])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post(LOGIN_URL,
+                JSON.stringify({ user }),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                }
+            );
+            console.log(JSON.stringify(response?.data));
+            //console.log(JSON.stringify(response));
+            const accessToken = response?.data?.accessToken;
+            const roles = response?.data?.roles;
+            setAuth({ user, roles, accessToken });
+            setUser('');
+            setSuccess(true);
+        } catch (err) {
+            if (!err?.response) {
+                setErrMsg('No Server Response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+        }
+    }
+
+    return (
+        <>
+        <box className='logform'>
+            {success ? (
+                <section className='section'>
+                    <h1>You are logged in!</h1>
+                    <br />
+                    <p>
+                        <a href="/contact">Go to Home</a>
+                    </p>
+                </section>
+            ) : (
+                <section className='section'>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <h1>Sign In</h1>
+                    <form onSubmit={handleSubmit} className="logform">
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            ref={userRef}
+                            autoComplete="off"
+                            onChange={(e) => setUser(e.target.value)}
+                            value={user}
+                            required
+                        />
+                        <button>Sign In</button>
+                    </form>
+                </section>
+            )}</box>
+        </>
     )
 }
 
-export default LoginPage
+export default Login

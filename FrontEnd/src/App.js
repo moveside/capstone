@@ -6,17 +6,10 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/Menu";
 import { ESL } from "./pages/ESL";
 import { Contact } from "./pages/Statistics";
-import axios from "axios";
-
+import Login from "./Login/LoginPage";
+import TestLogin from "./Login/TestLogin";
 
 function App() {
-  const getd=()=>{
-    axios.get("http://localhost:8080/menu").then(
-        (response)=>{
-            console.log(response);
-        }
-    );
-  }
 
   return (
     <>
@@ -29,19 +22,11 @@ function App() {
             <Route path="/login" component={ESL} />
             <Route path="/contact" component={Contact} />
           </Switch>
-          {/*<div>
-            <TestLogin />
-            <Switch>
-              <Route exact path="/home" component={Home} />
-            </Switch>
-          </div>*/}
         </div>
-        {/* <div>
-            hi <button onClick={getd}>getget</button>
-            <button onClick={postData}>post</button>
-        </div> */}
         
       </Router>
+      <Login></Login>
+      {/* <TestLogin></TestLogin> */}
     </>
   );
 }
