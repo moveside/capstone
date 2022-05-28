@@ -12,7 +12,6 @@ function NavBar() {
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
             Errs
-            
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -58,6 +57,17 @@ function NavBar() {
                 onClick={handleClick}
               >
                 statistics
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/home"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                loginPage
               </NavLink>
             </li>
           </ul>

@@ -13,7 +13,9 @@ function App() {
 
   return (
     <>
+      <div>
       <Router>
+    
         <NavBar />
         <div className="pages">
           <Switch>
@@ -21,11 +23,13 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/login" component={ESL} />
             <Route path="/contact" component={Contact} />
+            <Route path="/home" component={TestLogin} />
           </Switch>
         </div>
         
       </Router>
-      <Login></Login>
+      </div>
+      
       {/* <TestLogin></TestLogin> */}
     </>
   );

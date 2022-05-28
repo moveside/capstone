@@ -1,5 +1,5 @@
 import react, {useState, useEffect} from 'react';
-
+import { Link } from 'react-router-dom';
 const TestLogin = () => {
 
     const [user, setUser] = useState('');
@@ -20,7 +20,7 @@ const TestLogin = () => {
                             value={user}
                             required
                         />
-                        <button onClick={() => window.open('http://3.36.36.228:8080/login?'+'user='+user, '_blank')}>Sign In</button>
+                        <Link to = '/'>sign in</Link>
                     </form>
                 </section>
         </>
