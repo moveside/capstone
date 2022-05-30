@@ -36,7 +36,7 @@ class CallApi extends React.Component {
 
       };
       axios
-        .put("http://3.36.36.228:8080/api/v1/esl/2", data)
+        .put("/api/v1/esl/2", data)
         .then((data) => {
           console.log(data);
         })

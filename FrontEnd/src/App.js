@@ -1,34 +1,52 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./components/NavBar";
-import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { About } from "./pages/Menu";
 import { ESL } from "./pages/ESL";
 import { Contact } from "./pages/Statistics";
-import Login from "./Login/LoginPage";
-import TestLogin from "./Login/TestLogin";
+
+import { signIn } from "./Login/auth";
+import AuthRoute from "./Login/AuthRoute";
+import LoginForm from "./Login/LoginForm";
+import LogoutButton from "./Login/LogoutButton";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const authenticated = user != null;
+
+  const login = ({ email, password }) => setUser(signIn({ email, password }));
+  const logout = () => setUser(null);
 
   return (
     <>
-      <div>
       <Router>
-    
         <NavBar />
-        <div className="pages">
+          <div className="pages">
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route  exact path="/home" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/login" component={ESL} />
             <Route path="/contact" component={Contact} />
-            <Route path="/home" component={TestLogin} />
+            <Route
+              path='/'
+              render={props =>(
+                <LoginForm authenticated={authenticated} login={login} {...props}/>
+              )}
+            />
+            {authenticated ? (
+              <LogoutButton logout={logout} />
+            ) : (
+              <Link to="/" >
+                <button >Login</button>
+              </Link>
+            )}
+            
           </Switch>
-        </div>
-        
+          </div>
       </Router>
-      </div>
+
       
       {/* <TestLogin></TestLogin> */}
     </>

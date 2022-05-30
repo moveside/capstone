@@ -10,7 +10,7 @@ function NavBar() {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          <NavLink exact to="/home" className="nav-logo">
             Errs
           </NavLink>
 
@@ -18,7 +18,7 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/"
+                to="/home"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
@@ -59,15 +59,15 @@ function NavBar() {
                 statistics
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-login">
               <NavLink
                 exact
-                to="/home"
+                to="/"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                loginPage
+                Login/Logout
               </NavLink>
             </li>
           </ul>
