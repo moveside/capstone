@@ -19,6 +19,9 @@ var main = {
         $('#btn-save_esl').on('click', function () {
             _this.save_esl();
         });
+        $('#btn-login').on('click', function () {
+            _this.login();
+        });
     },
 
 
@@ -44,6 +47,26 @@ var main = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
+    },
+    login : function () {
+        var user =  $('#user').val();
+        $.ajax({
+            type: 'POST',
+            url: '/login/user/'+user,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(user),
+            success : successCall,
+            error   : errorCall
+        });
+        function successCall(){
+            alert("로그인성공");
+            window.location.href = '/';
+        }
+
+        function errorCall(){
+            alert('로그인실패');
+        }
     },
     save_menu : function () {
         var data = {

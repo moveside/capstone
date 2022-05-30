@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +50,7 @@ public class IndexController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
         HttpSession session = request.getSession();
-//        Store store = (Store)session.getAttribute("loginMember");
+        Store store = (Store)session.getAttribute("loginMember");
 //        model.addAttribute("menus", menuService.findAllDesc(store.getName()));
         return new ResponseEntity<>(menuService.findAllASC(),headers,HttpStatus.OK);
     }
@@ -62,6 +63,7 @@ public class IndexController {
 //        model.addAttribute("menus", menuService.findAllDesc(store.getName()));
         return new ResponseEntity<>(eslService.findAllESL(),headers,HttpStatus.OK);
     }
+
     @GetMapping("/login")
     public String Login(Model model, HttpServletRequest request) {
         HttpSession loginSession = request.getSession();
@@ -70,13 +72,12 @@ public class IndexController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 
-        String input = request.getParameter("code");
+        String input = request.getParameter("user");
         for(String el : store_code) {
-            System.out.println(el);
             if(el.equals(input)) {
                 Store loginMember = storeService.findStore(input);
                 loginSession.setAttribute("loginMember",loginMember);
-                return el;
+                return loginMember.getName();
             }
         }
         return "NULL";
@@ -119,8 +120,6 @@ public class IndexController {
         formatter = DateTimeFormatter.ofPattern("HHmmss");
         filename += nowTime.format(formatter);
 
-
-
         HttpHeaders header = new HttpHeaders();
         header.add("Content-Type", "text/csv; charset=MS932");
         header.setContentDispositionFormData("filename",filename+".csv");
@@ -143,4 +142,5 @@ public class IndexController {
 
     @GetMapping("/esl/update/{id}")
     public String esl_update() { return "ESL-save";}
+
 }
