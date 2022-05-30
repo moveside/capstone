@@ -136,7 +136,7 @@ class CallApi extends React.Component {
               onChange={this.changeHandler}
             />
             <button type="submit">저장</button>
-            <button onClick={()=> window.open("/download", "_blank")}>csv 다운로드</button>
+            <button onClick={()=> window.open("http://3.36.36.228:8080/download", "_blank")}>csv 다운로드</button>
           </form>
         </div>
       );
