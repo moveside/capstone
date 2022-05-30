@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import './login.css';
 
 function LoginForm({ authenticated, login, location }) {
   const [email, setEmail] = useState('');

@@ -38,7 +38,7 @@ function App() {
             {authenticated ? (
               <LogoutButton logout={logout} />
             ) : (
-              <Link to="/" >
+              <Link to="/home" >
                 <button >Login</button>
               </Link>
             )}
