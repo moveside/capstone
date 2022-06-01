@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './callapi.css';
 
 class CallApi extends React.Component {
     constructor(props) {
@@ -72,73 +73,86 @@ class CallApi extends React.Component {
     render() {
       const { menuName1, menuCost1, menuName2, menuCost2,openTime, closeTime, breakTime1,breakTime2,exp} = this.state;
       return (
+        <>
+        <div className="blank"></div>
         <div>
-          <form onSubmit={this.submitHandler}>
+          <form className="csv-form" onSubmit={this.submitHandler}>
+            <div className="esl-title">매뉴판 ESL 수정</div>
+            <div >
             메뉴 이름 : <input
+              className="esl-input"
               type="text"
               name="menuName1"
               value={menuName1}
               onChange={this.changeHandler}
             />
-            
-            메뉴 가격 : <input
+              메뉴 가격 : <input
+              className="esl-input"
               type="text"
               name="menuCost1"
               value={menuCost1}
               onChange={this.changeHandler}
             />
-            <br />
+            </div>
+            <div>
             메뉴 이름 : <input
+              className="esl-input"
               type="text"
               name="menuName2"
               value={menuName2}
               onChange={this.changeHandler}
             />
             메뉴 가격 : <input
+              className="esl-input"
               type="text"
               name="menuCost2"
               value={menuCost2}
               onChange={this.changeHandler}
             />
+            </div>
+            <br></br>
             <button type="submit">저장</button>
           </form>
-          <form onSubmit={this.submitHandler2}>
-            <input
-              type="text"
-              name="openTime"
-              value={openTime}
-              onChange={this.changeHandler}
-            />
-            <input
-              type="text"
-              name="closeTime"
-              value={closeTime}
-              onChange={this.changeHandler}
-            />
-            <br />
-            <input
-              type="text"
-              name="breakTime1"
-              value={breakTime1}
-              onChange={this.changeHandler}
-            />
-            <input
-              type="text"
-              name="breakTime2"
-              value={breakTime2}
-              onChange={this.changeHandler}
-            />
-            <br />
-            <input
-              type="text"
-              name="exp"
-              value={exp}
-              onChange={this.changeHandler}
-            />
+          <form className="csv-form2" onSubmit={this.submitHandler2}>
+            <div className="esl-title">웨이팅 ESL 수정</div>
+            <div>
+                Open time : <input
+                className="esl-input"
+                type="text"
+                name="openTime"
+                value={openTime}
+                onChange={this.changeHandler}
+                />
+                Close time : <input
+                className="esl-input"
+                type="text"
+                name="closeTime"
+                value={closeTime}
+                onChange={this.changeHandler}
+                />
+            </div>
+            <div>
+                Break time : <input
+                className="esl-input-breaktime"
+                type="text"
+                name="breakTime1"
+                value={breakTime1}
+                onChange={this.changeHandler}
+                />
+                <br />
+                추천 메뉴 : &nbsp;&nbsp;&nbsp;<input
+                className="esl-input2"
+                type="text"
+                name="exp"
+                value={exp}
+                onChange={this.changeHandler}
+                />
+            </div>
             <button type="submit">저장</button>
             <button onClick={()=> window.open("http://3.36.36.228:8080/download", "_blank")}>csv 다운로드</button>
           </form>
         </div>
+        </>
       );
     }
   }

@@ -1,0 +1,11 @@
+.menu-table{
+    width: 80%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.menu-blank{
+    margin-top: 7%;
+}

@@ -1,9 +1,9 @@
 import React from "react";
-
+import Statistic from "../components/Statistic";
 export const Contact=()=>{
     return(
         <div>
-            <h1>contact</h1>
+            <Statistic />
         </div>
     );
 };

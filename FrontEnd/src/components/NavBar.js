@@ -34,7 +34,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Menu
+                메뉴 조회
               </NavLink>
             </li>
             <li className="nav-item">
@@ -45,7 +45,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                ESL
+                ESL 관리
               </NavLink>
             </li>
             <li className="nav-item">
@@ -56,7 +56,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                statistics
+                주간 통계
               </NavLink>
             </li>
             <li className="nav-login">
@@ -67,7 +67,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Login/Logout
+                Logout
               </NavLink>
             </li>
           </ul>

@@ -8,7 +8,6 @@ import { ESL } from "./pages/ESL";
 import { Contact } from "./pages/Statistics";
 
 import { signIn } from "./Login/auth";
-import AuthRoute from "./Login/AuthRoute";
 import LoginForm from "./Login/LoginForm";
 import LogoutButton from "./Login/LogoutButton";
 

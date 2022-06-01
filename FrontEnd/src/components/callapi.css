@@ -1,0 +1,52 @@
+.blank{
+    margin-top: 7%;
+}
+
+.csv-form{
+    background-color: aliceblue;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 200px;
+    width: 500px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.csv-form2{
+    background-color: aliceblue;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 200px;
+    width: 500px;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.esl-title{
+    color: olivedrab
+}
+
+.esl-input{
+    border-radius: 5px;
+    transition: 0.3s all;
+    margin-right: 4%;
+    margin-top: 5%;
+}
+
+.esl-input-breaktime{
+    border-radius: 5px;
+    transition: 0.3s all;
+    margin-right: 53.75%;
+    margin-top: 5%;
+}
+
+.esl-input2{
+    border-radius: 5px;
+    transition: 0.3s all;
+    margin-right: 54%;
+    margin-top: 5%;
+}

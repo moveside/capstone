@@ -1,5 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+.LoginForm {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #f8f9fd;
+  }
 * {
     margin: 0;
     padding: 0;
@@ -67,7 +78,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: #6cf0c2;
 }
-
+ */
 
 /* input[type="text"],
 input[type="password"],
@@ -78,7 +89,7 @@ textarea {
   padding: 0.25rem;
   border-radius: 0.5rem;
 } */
-
+/* 
 label,
 button {
   margin-top: 1rem;
@@ -131,4 +142,69 @@ button {
 
 .line {
     display: inline-block;
+} */
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: snow;
 }
+  
+  input[type="text"],
+  input[type="password"] {
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #01d28e;
+    border: 1px solid #01d28e;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  input[type="submit"]:hover {
+    background: #6cf0c2;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .login-form {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 300px;
+    width: 200px;
+    margin-top: 10%;
+    border-radius: 5px;
+  }
+  
+  .list-container {
+    display: flex;
+  }
+  /* sign in 글자 css */
+  .title {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color:lightskyblue;
+  }
+  /* input값들 css */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }

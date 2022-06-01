@@ -21,29 +21,34 @@ function LoginForm({ authenticated, login, location }) {
 
   return (
     <>
-      <div className="form">
-        <form>
-            <div className='input-container'>
-                <input
-                    value={email}
-                    onChange={({ target: { value } }) => setEmail(value)}
-                    type="text"
-                    placeholder="관리자 ID"
-            />
+    <div className='app'>
+        <div className='login-form'>
+            <div className="title">Login</div>
+            <div className="form">
+                <form>
+                    <div className='input-container'>
+                        <input
+                            value={email}
+                            onChange={({ target: { value } }) => setEmail(value)}
+                            type="text"
+                            placeholder="관리자 ID"
+                    />
+                    </div>
+                    <div className='input-container'>
+                        <input
+                            value={password}
+                            onChange={({ target: { value } }) => setPassword(value)}
+                            type="password"
+                            placeholder="password"
+                        />
+                    </div>
+                    <div className='button-container'>
+                        <button className='login-button' onClick={handleClick}>Login</button>
+                    </div>
+                </form>
             </div>
-            <div className='input-container'>
-                <input
-                    value={password}
-                    onChange={({ target: { value } }) => setPassword(value)}
-                    type="password"
-                    placeholder="password"
-                />
-            </div>
-            <div className='button-container'>
-                <button onClick={handleClick}>Login</button>
-            </div>
-        </form>
       </div>
+    </div>
     </>
   );
 }

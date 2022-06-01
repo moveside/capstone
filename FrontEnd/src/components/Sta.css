@@ -1,0 +1,27 @@
+.statistic{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.statistic2{
+    width: 700px;
+    height: 700px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.explain1{
+    color: lightseagreen;
+    margin-top : 70px;
+}
+
+.explain2{
+    color: lightgrey;
+    font-size: 8px;
+}

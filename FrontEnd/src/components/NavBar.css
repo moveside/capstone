@@ -80,6 +80,21 @@
     margin-left: 2rem;
   }
   
+  .nav-login:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.7s ease, background-color 0.5s ease;
+  }
+  
+  .nav-login:hover:after {
+    width: 100%;
+    background: #ffdd40;
+  }
+  
+
   @media screen and (max-width: 960px) {
     .nav-menu {
       display: flex;
