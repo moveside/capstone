@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/Menu";
 import { ESL } from "./pages/ESL";
 import { Contact } from "./pages/Statistics";
+import Footer from "./pages/Footer";
 
 import { signIn } from "./Login/auth";
 import LoginForm from "./Login/LoginForm";
@@ -20,16 +21,16 @@ function App() {
 
   return (
     <>
+
       <Router>
         <NavBar />
           <div className="pages">
           <Switch>
-            <Route  exact path="/home" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/login" component={ESL} />
-            <Route path="/contact" component={Contact} />
+            <Route path="/menu" component={About} />
+            <Route path="/esl" component={ESL} />
+            <Route path="/statistic" component={Contact} />
             <Route
-              path='/'
+              exact path='/'
               render={props =>(
                 <LoginForm authenticated={authenticated} login={login} {...props}/>
               )}
@@ -37,7 +38,7 @@ function App() {
             {authenticated ? (
               <LogoutButton logout={logout} />
             ) : (
-              <Link to="/home" >
+              <Link to="/menu" >
                 <button >Login</button>
               </Link>
             )}
@@ -46,8 +47,7 @@ function App() {
           </div>
       </Router>
 
-      
-      {/* <TestLogin></TestLogin> */}
+
     </>
   );
 }

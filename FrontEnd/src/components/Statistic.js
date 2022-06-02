@@ -44,6 +44,9 @@ const Statistic = () =>{
         title: {
             display: true,
             text: '요일별 매출 통계',
+            font: {
+                size: 25,
+              },
         },
         },
     };
@@ -62,7 +65,7 @@ const Statistic = () =>{
   };
     return (
         <>
-        <div className='explain1'><h3>주간 매출</h3></div>
+        <div className='explain1'><h3>주간 매출 (총 매출 : 70만원)</h3></div>
         <div className='statistic'>
             <Doughnut data={data} />
         </div>
@@ -72,6 +75,7 @@ const Statistic = () =>{
         <div className='statistic2'>
             <Bar options={options} data={data2} />
         </div>
+        <br></br>
         </>
     );
 }

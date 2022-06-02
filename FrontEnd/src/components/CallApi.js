@@ -74,10 +74,9 @@ class CallApi extends React.Component {
       const { menuName1, menuCost1, menuName2, menuCost2,openTime, closeTime, breakTime1,breakTime2,exp} = this.state;
       return (
         <>
-        <div className="blank"></div>
         <div>
           <form className="csv-form" onSubmit={this.submitHandler}>
-            <div className="esl-title">매뉴판 ESL 수정</div>
+            <div className="esl-title">메뉴판 ESL 수정 <div className="esl-button-container"><button type="submit" className="esl-button">저장</button></div></div>
             <div >
             메뉴 이름 : <input
               className="esl-input"
@@ -111,10 +110,11 @@ class CallApi extends React.Component {
             />
             </div>
             <br></br>
-            <button type="submit">저장</button>
+            
           </form>
           <form className="csv-form2" onSubmit={this.submitHandler2}>
-            <div className="esl-title">웨이팅 ESL 수정</div>
+            <div className="esl-title">웨이팅 ESL 수정 <div style={{marginLeft:'57%'}}><button className="esl-button" type="submit">저장</button>
+            <button className="esl-button" onClick={()=> window.open("http://3.36.36.228:8080/download", "_blank")}>csv 다운로드</button></div></div>
             <div>
                 Open time : <input
                 className="esl-input"
@@ -134,6 +134,7 @@ class CallApi extends React.Component {
             <div>
                 Break time : <input
                 className="esl-input-breaktime"
+                placeholder=" ex) 14:00~16:00"
                 type="text"
                 name="breakTime1"
                 value={breakTime1}
@@ -148,9 +149,8 @@ class CallApi extends React.Component {
                 onChange={this.changeHandler}
                 />
             </div>
-            <button type="submit">저장</button>
-            <button onClick={()=> window.open("http://3.36.36.228:8080/download", "_blank")}>csv 다운로드</button>
           </form>
+          <br></br><br></br>
         </div>
         </>
       );

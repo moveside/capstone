@@ -10,7 +10,7 @@ function NavBar() {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/home" className="nav-logo">
+          <NavLink exact to="/about" className="nav-logo">
             Errs
           </NavLink>
 
@@ -18,18 +18,7 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/home"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/about"
+                to="/menu"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
@@ -40,7 +29,7 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/login"
+                to="/esl"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
@@ -51,7 +40,7 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/contact"
+                to="/statistic"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}

@@ -8,14 +8,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { lightBlue } from "@mui/material/colors";
 import './MenuTable.css';
+
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
+        color : theme.palette.common.white,
+        fontSize:17,
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
+      fontSize: 17,
     },
 }));
   
@@ -34,24 +37,24 @@ const TestTable=()=>{
 
     const getProductData = async() =>{
         try{
-            const data = await axios.get("/menu");
+            const data = await axios.get("http://3.36.36.228:8080/menu");
             console.log(data.data);
             setProduct(data.data);
         } catch(e){
             console.log(e);
         }
     };
-
+    
     useEffect(()=> {
         getProductData();
     },[]);
     return(
-        <>
+        <>      
         <div className="menu-blank"></div>
         <div className="menu-table">
         <TableContainer component={Paper} >
             <Table aria-label="customized table">
-                <TableHead style={{backgroundColor: lightBlue[100], color: 'black',}}>
+                <TableHead className="table-style">
                     <TableRow >
                     <StyledTableCell>id</StyledTableCell>
                     <StyledTableCell align="right">name</StyledTableCell>

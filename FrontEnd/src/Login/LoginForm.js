@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import Footer from '../pages/Footer';
 import './login.css';
 
 function LoginForm({ authenticated, login, location }) {
@@ -31,7 +32,7 @@ function LoginForm({ authenticated, login, location }) {
                             value={email}
                             onChange={({ target: { value } }) => setEmail(value)}
                             type="text"
-                            placeholder="관리자 ID"
+                            placeholder=" 관리자 ID"
                     />
                     </div>
                     <div className='input-container'>
@@ -39,7 +40,7 @@ function LoginForm({ authenticated, login, location }) {
                             value={password}
                             onChange={({ target: { value } }) => setPassword(value)}
                             type="password"
-                            placeholder="password"
+                            placeholder=" password"
                         />
                     </div>
                     <div className='button-container'>
@@ -48,6 +49,9 @@ function LoginForm({ authenticated, login, location }) {
                 </form>
             </div>
       </div>
+    </div>
+    <div>
+        <Footer></Footer>
     </div>
     </>
   );

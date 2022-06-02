@@ -1,6 +1,6 @@
 .statistic{
-    width: 300px;
-    height: 300px;
+    width: 30%;
+    height: 30%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -8,8 +8,8 @@
 }
 
 .statistic2{
-    width: 700px;
-    height: 700px;
+    width: 50%;
+    height: 50%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -17,11 +17,13 @@
 }
 
 .explain1{
-    color: lightseagreen;
+    color: cadetblue;
+    font-size: 25px;
     margin-top : 70px;
 }
 
 .explain2{
-    color: lightgrey;
-    font-size: 8px;
+    color: grey;
+    font-size: 12px;
 }
+
