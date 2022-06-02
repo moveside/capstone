@@ -87,7 +87,7 @@ public class IndexController {
         List<ESL> esl = eslRepository.findAll();
 
         String[] cols = {"tag_id","openTime","closeTime","breakTime1","breakTime2","explain","menuName1","menuName2","menuCost1","menuCost2"};
-        String filename = "Import_";
+        String filename = "import_";
 
         byte[] CSVData= null;
         CSVPrinter csvPrinter = null;
