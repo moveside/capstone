@@ -1,8 +1,8 @@
 import React from "react"
 import "./Footercss.css"
 
-const Footer = () =>{
-    return(
+const Footer = () => {
+    return (
         <footer className="footers">
             <div className="contents">
                 <div className="footer-title">

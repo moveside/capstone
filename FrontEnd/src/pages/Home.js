@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
-export const Home=()=>{
-    return(
+export const Home = () => {
+    return (
         <>
             <div>
                 <h1>home</h1>
@@ -10,6 +10,6 @@ export const Home=()=>{
                 <Footer></Footer>
             </div>
         </>
-        
+
     );
 };

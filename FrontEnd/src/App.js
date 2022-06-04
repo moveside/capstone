@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import NavBar from "./components/NavBar";
-import {BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { About } from "./pages/Menu";
 import { ESL } from "./pages/ESL";
@@ -24,15 +24,15 @@ function App() {
 
       <Router>
         <NavBar />
-          <div className="pages">
+        <div className="pages">
           <Switch>
             <Route path="/menu" component={About} />
             <Route path="/esl" component={ESL} />
             <Route path="/statistic" component={Contact} />
             <Route
               exact path='/'
-              render={props =>(
-                <LoginForm authenticated={authenticated} login={login} {...props}/>
+              render={props => (
+                <LoginForm authenticated={authenticated} login={login} {...props} />
               )}
             />
             {authenticated ? (
@@ -42,9 +42,9 @@ function App() {
                 <button >Login</button>
               </Link>
             )}
-            
+
           </Switch>
-          </div>
+        </div>
       </Router>
 
 
